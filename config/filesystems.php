@@ -55,6 +55,19 @@ return [
             'visibility' => 'public',
         ],
 
+        'CarouselImage' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/carousel-image'),
+            'url' => env('APP_URL').'/storage/carousel-image',
+            'visibility' => 'public',
+        ],
+        'CarouselImageResize' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/carousel-image-resize'),
+            'url' => env('APP_URL').'/storage/carousel-image-resize',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

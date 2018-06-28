@@ -26,7 +26,7 @@ class CreateRolesTable extends Migration
             $table->increments('id');
             $table->string('name', 45)->nullable();
             $table->timestamp('created_at')->nullable();
-            $table->string('updated_at', 45)->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->unsignedInteger('users_id');
 
             $table->index(["users_id"], 'fk_roles_users1_idx');

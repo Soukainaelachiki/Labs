@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarousselTable extends Migration
+class CreateCarouselsTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'caroussel';
+    public $set_schema_table = 'carousels';
 
     /**
      * Run the migrations.
-     * @table caroussel
+     * @table carousels
      *
      * @return void
      */
@@ -24,9 +24,9 @@ class CreateCarousselTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('image', 45)->nullable();
+            $table->string('image')->nullable();
             $table->string('titre', 45)->nullable();
-            $table->string('contenu', 80)->nullable();
+            $table->string('contenu',250)->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
