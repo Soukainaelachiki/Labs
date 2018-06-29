@@ -24,10 +24,11 @@ class CreateRolesTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name', 45)->nullable();
+            $table->string('name');
+            $table->string('slug');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
-            $table->unsignedInteger('users_id');
+            $table->unsignedInteger('users_id')->nullable();
 
             $table->index(["users_id"], 'fk_roles_users1_idx');
 

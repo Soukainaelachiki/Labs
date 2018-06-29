@@ -38,6 +38,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route ::resource('/admin/carousel','CarouselController');
+Route::resource('/admin/carousel','CarouselController');
+Route::resource('/admin/users','UsersController');
+Route::resource('admin/roles','RoleController');
 
 
