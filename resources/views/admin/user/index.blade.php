@@ -10,7 +10,7 @@
 
 <a href="{{route('users.create')}}" class="btn btn-info">Ajouter un utilisateur</a>
 
-<table class="table">
+<table class="table table-light">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -27,10 +27,9 @@
           <td>{{$user->name}}</td>
           <td>{{$user->email}}</td>
           <td>{{$user->password}}</td>
-          <td>{{$user->role_id}}</td>
+          <td>{{$user->roles->name}}</td>
           <td><a href="{{route('users.show',['user' => $user->id])}}"class="btn btn-info">En savoir plus...</a></td>
-        </tr>
-        
+        </tr>   
       @endforeach
         
     </tbody>

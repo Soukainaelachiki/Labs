@@ -118,7 +118,7 @@ return [
             'text'        => 'Carousel',
             'url'         => 'admin/carousel',
             'icon'        => 'file',
-            'label'       => 4,
+            'label'       => 2,
             'label_color' => 'success',
         ],
 
@@ -126,9 +126,26 @@ return [
             'text'        => 'Users',
             'url'         => 'admin/users',
             'icon'        => 'file',
-            'label'       => 4,
+            'label'       => 1,
             'label_color' => 'success',
         ],
+
+        [
+            'text'        => 'Text',
+            'url'         => 'admin/text',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+
+        [
+            'text'        => 'Client',
+            'url'         => 'admin/client',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+
 
         'ACCOUNT SETTINGS',
         [

@@ -55,10 +55,10 @@ return [
             'visibility' => 'public',
         ],
 
-        'CarouselImage' => [
+        'OriginalImage' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/carousel-image'),
-            'url' => env('APP_URL').'/storage/carousel-image',
+            'root' => storage_path('app/public/original-image'),
+            'url' => env('APP_URL').'/storage/original-image',
             'visibility' => 'public',
         ],
         'CarouselImageResize' => [
@@ -67,6 +67,14 @@ return [
             'url' => env('APP_URL').'/storage/carousel-image-resize',
             'visibility' => 'public',
         ],
+    
+        'ClientImageResize' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/client-image-resize'),
+            'url' => env('APP_URL').'/storage/client-image-resize',
+            'visibility' => 'public',
+        ],
+
 
         's3' => [
             'driver' => 's3',

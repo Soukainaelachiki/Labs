@@ -41,5 +41,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/admin/carousel','CarouselController');
 Route::resource('/admin/users','UsersController');
 Route::resource('admin/roles','RoleController');
+Route::resource('admin/text','ZonetextController');
+Route::resource('admin/client','ClientController');
 
 

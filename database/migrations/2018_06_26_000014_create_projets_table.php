@@ -32,13 +32,13 @@ class CreateProjetsTable extends Migration
             $table->unsignedInteger('client_id');
             $table->unsignedInteger('client_testimonius_id');
 
-            $table->index(["client_id", "client_testimonius_id"], 'fk_projet_client1_idx');
+            // $table->index(["client_id", "client_testimonius_id"], 'fk_projet_client1_idx');
 
 
-            $table->foreign('client_id', 'fk_projet_client1_idx')
-                ->references('id')->on('client')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            // $table->foreign('client_id', 'fk_projet_client1_idx')
+            //     ->references('id')->on('client')
+            //     ->onDelete('no action')
+            //     ->onUpdate('no action');
         });
     }
 

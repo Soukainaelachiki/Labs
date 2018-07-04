@@ -30,7 +30,19 @@ class CarouselController extends Controller
     public function store(Request $request){
 
         $carousel = new Carousel;
-        $carousel->image = $this->imageResize->imageStore($request->image);
+
+        if($request->image != null){
+
+            $arg = [
+                'request' => $request->image,
+                'disk' => 'CarouselImageResize',
+                'x' => 100
+            ];
+
+            $carousel->image = $this->imageResize->imageStore($arg);
+
+        }
+
         if($carousel->save()){
             return redirect()->route('carousel.index');
         }
