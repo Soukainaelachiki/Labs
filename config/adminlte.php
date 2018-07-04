@@ -146,6 +146,14 @@ return [
             'label_color' => 'success',
         ],
 
+        [
+            'text'        => 'Team',
+            'url'         => 'admin/team',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+
 
         'ACCOUNT SETTINGS',
         [

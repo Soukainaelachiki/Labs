@@ -43,5 +43,6 @@ Route::resource('/admin/users','UsersController');
 Route::resource('admin/roles','RoleController');
 Route::resource('admin/text','ZonetextController');
 Route::resource('admin/client','ClientController');
+Route::resource('admin/team','TeamController');
 
 
