@@ -8,7 +8,7 @@
 
 @section('content')
 
-<form action="{{route('users.store')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('team.store')}}" method="post" enctype="multipart/form-data">
     @csrf
 <!--name-->
     <div class="form-group">
@@ -22,12 +22,10 @@
     </div>
 <!--password-->
     
-<div class="custom-file">
-    <input type="file" class="custom-file-input" id="image" name="image">
-    <label class="custom-file-label" for="image"></label>
-</div>
-<button type="submit" class="btn btn-info">Enregistrer</button>
-
+    <div class="custom-file">
+        <label class="custom-file-label" for="photo"></label>
+        <input type="file" class="custom-file-input" id="photo" name="photo">     
+    </div>
     <button type="submit" class="btn btn-info">Enregistrer</button>
     </form>
 

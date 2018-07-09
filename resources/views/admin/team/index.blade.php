@@ -8,7 +8,7 @@
 
 @section('content')
 
-<a href="{{route('team.create')}}" class="btn btn-info">Ajouter un utilisateur</a>
+<a href="{{route('team.create')}}" class="btn btn-info">Ajouter un membre de la team</a>
 
 <table class="table table-light">
     <thead>
@@ -17,6 +17,7 @@
         <th scope="col">Name</th>
         <th scope="col">Photo</th>
         <th scope="col">Profession</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +27,7 @@
           <td>{{$team->name}}</td>
           <td>{{$team->photo}}</td>
           <td>{{$team->profession}}</td>
-          {{-- <td><a href="{{route('team.show',['team' => $team->id])}}"class="btn btn-info">En savoir plus...</a></td> --}}
+          <td><a href="{{route('team.show',['team' => $team->id])}}"class="btn btn-info">En savoir plus...</a></td>
         </tr>   
       @endforeach
         

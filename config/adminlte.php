@@ -154,6 +154,14 @@ return [
             'label_color' => 'success',
         ],
 
+        [
+            'text'        => 'Service',
+            'url'         => 'admin/service',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+
 
         'ACCOUNT SETTINGS',
         [

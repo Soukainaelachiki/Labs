@@ -23,9 +23,12 @@ class ImageResize {
 
 
     public function imageDestroy($image){
-
+       
+        Storage::disk('ClientImageResize')->delete($image);
         Storage::disk('CarouselImageResize')->delete($image);
+        Storage::disk('TeamImageResize')->delete($image);
         Storage::disk('OriginalImage')->delete($image);
+        
 
         }
 

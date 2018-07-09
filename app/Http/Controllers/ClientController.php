@@ -95,12 +95,16 @@ class ClientController extends Controller
         $client->email = $request->email;
         $client->compagnie = $request->compagnie;
         $client->testimonial = $request->testimonial;
+
+        if($request->image != null){
+        $client->image =$this->imageResize->imageDestroy($client->image);
         $arg = [
             'request' => $request->image,
             'disk' => 'ClientImageResize',
             'x' => 200
         ];
         $client->image = $this->imageResize->imageStore($arg);
+        }
 
         if($client->save()){
             return redirect()->route('client.index');
@@ -115,6 +119,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
+        $client->image =$this->imageResize->imageDestroy($client->image);
         if($client->delete()){
             return redirect()->route('client.index');
         }

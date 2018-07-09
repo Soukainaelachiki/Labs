@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Team;
 use Illuminate\Http\Request;
+use App\Services\ImageResize;
+
 
 class TeamController extends Controller
 {
+    public function __construct(ImageResize $imageResize){
+        $this->imageResize = $imageResize;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +41,19 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $team = new Team;
+        $team->name = $request->name;
+        $team->profession = $request->profession;
+        $arg = [
+            'request' => $request->photo,
+            'disk' => 'TeamImageResize',
+            'x' => 200,
+        ];
+        $team->photo = $this->imageResize->imageStore($arg);
+        if ($team->save())
+        {
+            return redirect()->route("team.index");
+        }
     }
 
     /**
@@ -47,7 +64,7 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //
+        return view('admin.team.show', compact('team'));
     }
 
     /**
@@ -58,7 +75,7 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        //
+        return view('admin.team.edit',compact('team'));
     }
 
     /**
@@ -70,7 +87,20 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+        $team->name = $request->name;
+        $team->profession = $request->profession;
+        if($request->image != null){
+            $team->image =$this->imageResize->imageDestroy($team->image);
+        $arg = [
+            'request' => $request->photo,
+            'disk' => 'TeamImageResize',
+            'x' => 200
+        ];
+        $team->photo = $this->imageResize->imageStore($arg);
+        }
+        if($team->save()){
+            return redirect()->route('team.index');
+        }
     }
 
     /**
@@ -81,6 +111,9 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        //
+        $team->photo =$this->imageResize->imageDestroy($team->photo);
+        if($team->delete()){
+            return redirect()->route('team.index');
+        }
     }
 }
