@@ -82,6 +82,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'ProjetImageResize' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/projet-image-resize'),
+            'url' => env('APP_URL').'/storage/projet-image-resize',
+            'visibility' => 'public',
+        ],
+
 
         's3' => [
             'driver' => 's3',

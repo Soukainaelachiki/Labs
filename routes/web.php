@@ -45,5 +45,8 @@ Route::resource('admin/text','ZonetextController');
 Route::resource('admin/client','ClientController');
 Route::resource('admin/team','TeamController');
 Route::resource('admin/service','ServiceController');
+Route::resource('admin/projet','ProjetController');
+Route::resource('admin/tag','TagController');
+Route::resource('admin/categorie','CategorieController');
 
 

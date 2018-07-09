@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategorieTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'categorie';
+    public $set_schema_table = 'categories';
 
     /**
      * Run the migrations.
-     * @table categorie
+     * @table categories
      *
      * @return void
      */

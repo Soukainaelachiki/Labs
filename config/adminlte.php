@@ -162,6 +162,29 @@ return [
             'label_color' => 'success',
         ],
 
+        [
+            'text'        => 'Projet',
+            'url'         => 'admin/projet',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+
+        [
+            'text'        => 'Tag',
+            'url'         => 'admin/tag',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Categorie',
+            'url'         => 'admin/categorie',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+
 
         'ACCOUNT SETTINGS',
         [
