@@ -23,7 +23,7 @@ class CreateTagsHasArticleTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('tags_id');
+            $table->unsignedInteger('tags_id');
             $table->unsignedInteger('article_id');
 
             $table->index(["tags_id"], 'fk_tags_has_article_tags1_idx');

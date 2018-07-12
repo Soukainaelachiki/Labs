@@ -46,11 +46,11 @@
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
 			<ul class="menu-list">
-				<li class="active"><a href="">Home</a></li>
-				<li><a class="active" href="">Services</a></li>
-				<li><a class="active" href="">Blog</a></li>
-				<li><a class="active" href="">Contact</a></li>
-				<li><a class="active" href="">Elements</a></li>
+				<li class="active"><a href="{{route('home')}}">Home</a></li>
+				<li><a class="active" href="{{route('services')}}">Services</a></li>
+				<li><a class="active" href="{{route('blog')}}">Blog</a></li>
+				<li><a class="active" href="{{route('contact')}}">Contact</a></li>
+				<li><a class="active" href="{{route('element')}}">Elements</a></li>
 			</ul>
 		</nav>
 	</header>

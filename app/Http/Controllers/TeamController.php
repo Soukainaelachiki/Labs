@@ -47,7 +47,7 @@ class TeamController extends Controller
         $arg = [
             'request' => $request->photo,
             'disk' => 'TeamImageResize',
-            'x' => 200,
+            'x' => '',
         ];
         $team->photo = $this->imageResize->imageStore($arg);
         if ($team->save())
@@ -94,7 +94,7 @@ class TeamController extends Controller
         $arg = [
             'request' => $request->photo,
             'disk' => 'TeamImageResize',
-            'x' => 200
+            'x' => '',
         ];
         $team->photo = $this->imageResize->imageStore($arg);
         }

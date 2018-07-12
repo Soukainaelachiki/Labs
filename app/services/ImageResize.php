@@ -27,6 +27,8 @@ class ImageResize {
         Storage::disk('ClientImageResize')->delete($image);
         Storage::disk('CarouselImageResize')->delete($image);
         Storage::disk('TeamImageResize')->delete($image);
+        Storage::disk('ProjetImageResize')->delete($image);
+        Storage::disk('ArticleImageResize')->delete($image);
         Storage::disk('OriginalImage')->delete($image);
         
 

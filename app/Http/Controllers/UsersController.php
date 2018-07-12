@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 
 class UsersController extends Controller
 {
     public function index(){
 
-        $users = User::All();
+        $users = User::all();
         return view('admin.user.index',compact('users'));
     }
     
     public function create(){
-
-        return view('admin.user.create');
+        $roles = Role::get();
+        return view('admin.user.create',compact('users','roles'));
     }
 
     public function store(Request $request){
@@ -24,6 +25,7 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->role_id = $request->role;
 
         if ($user->save())
         {

@@ -17,5 +17,8 @@ class UsersTableSeeder extends Seeder
             'role_id'=> 1,
             "password"=> bcrypt('maitre'),
         ]);
+
+       
+        
     }
 }

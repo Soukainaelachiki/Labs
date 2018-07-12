@@ -24,7 +24,7 @@ class CreateTagsTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('theme', 45)->nullable();
+            $table->string('theme');
             $table->timestamps();
         });
     }

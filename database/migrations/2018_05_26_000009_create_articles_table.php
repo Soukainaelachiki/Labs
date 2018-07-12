@@ -24,26 +24,21 @@ class CreateArticlesTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('image', 45)->nullable();
-            $table->string('titre', 45);
+            $table->string('image')->nullable();
+            $table->string('titre');
             $table->text('contenu');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('categorie_id');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
-           //$table->unsignedInteger('created_at');
-            $table->unsignedInteger('editeur_id');
-            $table->unsignedInteger('users_id');
+            $table->timestamp('deleted_at')->nullable();
+          
+           
 
-            //$table->index(["created_at"], 'fk_article_categorie1_idx');
+          
+            $table->index(["user_id"], 'fk_articles_users1_idx');
 
-            $table->index(["users_id"], 'fk_articles_users1_idx');
-
-
-            //$table->foreign('created_at', 'fk_article_categorie1_idx')
-                //->references('id')->on('categorie')
-                //->onDelete('no action')
-                //->onUpdate('no action');
-
-            $table->foreign('users_id', 'fk_articles_users1_idx')
+            $table->foreign('user_id', 'fk_articles_users1_idx')
                 ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');

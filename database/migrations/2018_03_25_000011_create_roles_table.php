@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'users';
+    public $set_schema_table = 'roles';
 
     /**
      * Run the migrations.
-     * @table users
+     * @table roles
      *
      * @return void
      */
@@ -25,12 +25,14 @@ class CreateUsersTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->unsignedInteger('role_id')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('slug');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->unsignedInteger('users_id')->nullable();
+            
 
+
+            ;
         });
     }
 

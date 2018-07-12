@@ -185,6 +185,14 @@ return [
             'label_color' => 'success',
         ],
 
+        [
+            'text'        => 'Article',
+            'url'         => 'admin/article',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+
 
         'ACCOUNT SETTINGS',
         [

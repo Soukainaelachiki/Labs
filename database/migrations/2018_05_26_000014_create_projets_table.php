@@ -24,10 +24,10 @@ class CreateProjetsTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('titre', 45);
-            $table->string('image', 45)->nullable();
+            $table->string('titre');
+            $table->string('image')->nullable();
             $table->text('contenu');
-            $table->string('url', 45);
+            $table->string('url');
             $table->timestamps();  
         });
     }

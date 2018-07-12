@@ -11,29 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
-Route::get('/services', function(){
-    return view('services');
-});
+//Route::get('/services', function(){
+ //   return view('services');
+//});
 
-Route::get('/contact', function(){
-    return view('contact');
-});
+// Route::get('/contact', function(){
+//     return view('contact');
+// });
 
-Route::get('/blog',function(){
-    return view('blog');
-});
+// Route::get('/blog',function(){
+//     return view('blog');
+// });
 
-Route::get('/element',function(){
-    return view('element');
-});
+// Route::get('/element',function(){
+//     return view('element');
+// });
 
-Route::get('/blogPost',function(){
-    return view('blogPost');
-});
+// Route::get('/blogPost',function(){
+//     return view('blogPost');
+// });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -48,5 +48,12 @@ Route::resource('admin/service','ServiceController');
 Route::resource('admin/projet','ProjetController');
 Route::resource('admin/tag','TagController');
 Route::resource('admin/categorie','CategorieController');
+Route::resource('admin/article','ArticleController');
+
+Route::get('/','FrontController@home')->name('home');
+Route::get('/services','FrontController@service')->name('services');
+Route::get('/blog','FrontController@blog')->name('blog');
+Route::get('/contact','FrontController@contact')->name('contact');
+Route::get('/element','FrontController@element')->name('element');
 
 
