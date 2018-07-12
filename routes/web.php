@@ -53,7 +53,7 @@ Route::resource('admin/article','ArticleController');
 Route::get('/','FrontController@home')->name('home');
 Route::get('/services','FrontController@service')->name('services');
 Route::get('/blog','FrontController@blog')->name('blog');
-Route::get('/contact','FrontController@contact')->name('contact');
+Route::post('/contact','FrontController@contact')->name('contact');
 Route::get('/element','FrontController@element')->name('element');
 
 

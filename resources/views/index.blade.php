@@ -202,23 +202,7 @@
 					<p class="con-item">hello@company.com</p>
 				</div>
 				<!-- contact form -->
-				<div class="col-md-6 col-pull">
-					<form class="form-class" id="con_form">
-						<div class="row">
-							<div class="col-sm-6">
-								<input type="text" name="name" placeholder="Your name">
-							</div>
-							<div class="col-sm-6">
-								<input type="text" name="email" placeholder="Your email">
-							</div>
-							<div class="col-sm-12">
-								<input type="text" name="subject" placeholder="Subject">
-								<textarea name="message" placeholder="Message"></textarea>
-								<button class="site-btn">send</button>
-							</div>
-						</div>
-					</form>
-				</div>
+				@include("partials.contact")
 			</div>
 		</div>
 	</div>

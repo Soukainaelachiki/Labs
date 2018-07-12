@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Events\Contact;
 use App\Carousel;
 use App\Service;
 use App\Team;
@@ -29,9 +30,10 @@ class FrontController extends Controller
         return view("blog");
     }
 
-    public function contact(){
+    public function contact(ContactRequest $request){
 
-        return view("contact");
+        event(new Contact($request));
+        return redirect()->route("home");
 
     }
 
