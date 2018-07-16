@@ -16,6 +16,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Contact' => [
             'App\Listeners\ContactMailListener',
         ],
+        'App\Events\Newsletterform' => [
+            'App\Listeners\NewsletterformMailListener',
+        ],
+
     ];
 
     /**

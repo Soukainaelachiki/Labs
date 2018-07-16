@@ -49,11 +49,17 @@ Route::resource('admin/projet','ProjetController');
 Route::resource('admin/tag','TagController');
 Route::resource('admin/categorie','CategorieController');
 Route::resource('admin/article','ArticleController');
+Route::resource('admin/newsletter','NewsletterController');
+Route::resource('admin/commentaire','CommentaireController');
 
 Route::get('/','FrontController@home')->name('home');
 Route::get('/services','FrontController@service')->name('services');
+Route::post('/newsletterform','FrontController@newsletterform')->name('newsletterform');
 Route::get('/blog','FrontController@blog')->name('blog');
-Route::post('/contact','FrontController@contact')->name('contact');
+Route::post('/commentaireform/{article_id}','FrontController@commentaireform')->name('commentaireform');
+Route::get('/contact','FrontController@contact')->name('contact');
+Route::post('/contactform','FrontController@contactform')->name('contactform');
 Route::get('/element','FrontController@element')->name('element');
+Route::get('/blog-post/{article}','FrontController@blogpost')->name('blogpost');
 
 

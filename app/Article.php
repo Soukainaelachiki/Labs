@@ -26,5 +26,10 @@ class Article extends Model
     public function categories(){
         return $this->belongsTo("App\Categorie","categorie_id","id");
     }
+
+    public function commentaire(){
+        
+        return $this->hasMany("App\Commentaire","article_id","id");
+    }
     protected $dates = ['deleted_at'];
 }

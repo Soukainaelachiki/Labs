@@ -192,6 +192,20 @@ return [
             'label'       => 1,
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Newsletter',
+            'url'         => 'admin/newsletter',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Commentaire',
+            'url'         => 'admin/commentaire',
+            'icon'        => 'file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
 
 
         'ACCOUNT SETTINGS',

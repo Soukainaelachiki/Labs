@@ -51,7 +51,7 @@ class ArticleController extends Controller
         $arg = [
             'request' => $request->image,
             'disk' => 'ArticleImageResize',
-            'x' => 400
+            'x' => "",
         ];
         $article->image = $this->imageResize->imageStore($arg);
         $article->contenu = $request->contenu;
@@ -104,7 +104,7 @@ class ArticleController extends Controller
             $arg = [
                 'request' => $request->image,
                 'disk' => 'ArticleImageResize',
-                'x' => 400
+                'x' => "",
             ];
             $article->image = $this->imageResize->imageStore($arg);
         }

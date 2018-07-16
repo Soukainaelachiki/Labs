@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Listeners;
-
-use  Mail;
-use App\Mail\ContactMail;
-use App\Events\Contact;
+use Mail;
+use App\Mail\NewsletterMail;
+use App\Events\Newsletterform;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactMailListener
+class NewsletterformMailListener
 {
     /**
      * Create the event listener.
@@ -23,11 +22,11 @@ class ContactMailListener
     /**
      * Handle the event.
      *
-     * @param  Contact  $event
+     * @param  Newsletterform  $event
      * @return void
      */
-    public function handle(Contact $event)
+    public function handle(Newsletterform $event)
     {
-        Mail::to($event->request)->send(new  ContactMail($event->request));
+        Mail::to($event->request)->send(new  NewsletterMail($event->request));
     }
 }

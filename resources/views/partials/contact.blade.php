@@ -1,5 +1,5 @@
 <div class="col-md-6 col-pull">
-    <form class="form-class" id="con_form" action="{{route('contact')}}" method="post">
+    <form class="form-class" id="con_form" action="{{route('contactform')}}" method="post">
         @csrf
         <div class="row">
             <div class="col-sm-6">

@@ -49,7 +49,7 @@ class ProjetController extends Controller
         $arg = [
             'request' => $request->image,
             'disk' => 'ProjetImageResize',
-            'x' => 200
+            'x' => '',
         ];
         $projet->image = $this->imageResize->imageStore($arg);
 
@@ -98,7 +98,7 @@ class ProjetController extends Controller
         $arg = [
             'request' => $request->image,
             'disk' => 'ProjetImageResize',
-            'x' => 400
+            'x' => '',
         ];
         $projet->image = $this->imageResize->imageStore($arg);
         }
