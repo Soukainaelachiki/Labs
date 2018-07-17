@@ -13,6 +13,7 @@ use App\Categorie;
 use App\Commentaire;
 use App\Tag;
 use App\Projet;
+use App\Zonetext;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\NewsletterRequest;
@@ -25,7 +26,8 @@ class FrontController extends Controller
         $services2 = Service::paginate(9);
         $teams = Team::all();
         $clients = Client::all();
-        return view("index",compact('carousels','services','services2','teams','clients'));
+        $zonetexts = Zonetext::all();
+        return view("index",compact('carousels','services','services2','teams','clients','zonetexts'));
 
     }
 
@@ -53,6 +55,21 @@ class FrontController extends Controller
         $categories = Categorie::all();
         $tags = Tag::all();
         return view("blogPost",compact("article","categories","tags"));
+    }
+
+    public function filtercat($id){
+        $tags = Tag::all();
+        $categories = Categorie::all();
+        $articles = Article::where('categorie_id', $id)->paginate(3);
+        return view('blog', compact('articles','categories','tags'));
+    }
+
+    // public function filtertag($id){
+    //     $categories = Categorie::all();
+    //     $tags =Tag::all();
+    //     $articles =Article::where('tag_id',$id)->paginate(3);
+    //     return view('blog', compact('articles','categories','tags'));
+
     }
 
     public function contact(){

@@ -61,5 +61,5 @@ Route::get('/contact','FrontController@contact')->name('contact');
 Route::post('/contactform','FrontController@contactform')->name('contactform');
 Route::get('/element','FrontController@element')->name('element');
 Route::get('/blog-post/{article}','FrontController@blogpost')->name('blogpost');
-
-
+Route::get('/blog/categorie/{id}', 'FrontController@filterCat')->name('categfiltre');
+// Route::get('/blog/tag/{id}', 'FrontController@filtertag')->name('tagfiltre');

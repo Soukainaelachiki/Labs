@@ -62,7 +62,7 @@
                         <h2 class="widget-title">Categories</h2>
                         <ul>
                             @foreach($categories as $categorie)
-                            <li><a href="#">{{$categorie->nom}}</a></li>
+                                <li><a href="{{route('categfiltre', ['categorie' => $categorie->id])}}">{{$categorie->nom}}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -83,7 +83,7 @@
                         <h2 class="widget-title">Tags</h2>
                         <ul class="tag">
                             @foreach($tags as $tag)
-                            <li><a href="">{{$tag->theme}}</a></li>
+                        <li><a href="">{{$tag->theme}}</a></li>
                             @endforeach
                         </ul>
                     </div>
