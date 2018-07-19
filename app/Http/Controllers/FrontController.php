@@ -45,7 +45,7 @@ class FrontController extends Controller
 
     public function blog(){
 
-        $articles = Article::all();
+        $articles = Article::all()->where("validation",1);
         $categories = Categorie::all();
         $tags = Tag::all();
         return view("blog",compact("articles","categories","tags"));
@@ -54,7 +54,9 @@ class FrontController extends Controller
     public function blogpost(Article $article){
         $categories = Categorie::all();
         $tags = Tag::all();
-        return view("blogPost",compact("article","categories","tags"));
+        $commentaires = Commentaire::all()->where("validation",1);
+
+        return view("blogPost",compact("article","categories","tags","commentaires"));
     }
 
     public function filtercat($id){
@@ -64,12 +66,19 @@ class FrontController extends Controller
         return view('blog', compact('articles','categories','tags'));
     }
 
-    // public function filtertag($id){
-    //     $categories = Categorie::all();
-    //     $tags =Tag::all();
-    //     $articles =Article::where('tag_id',$id)->paginate(3);
-    //     return view('blog', compact('articles','categories','tags'));
+    public function filtertag($id){
+        $categories = Categorie::all();
+        $tags =Tag::all();
+        $articles = Tag::find($id)->blog()->where('tags_id',$id)->paginate(3);
+        return view('blog', compact('articles','categories','tags'));
+    }
 
+    public function filtertitle(Request $request){
+        $categories = Categorie::all();
+        $tags = Tag::all();
+        $titre = $request->titre;
+        $articles = Article::where('titre', 'LIKE', '%'.$titre.'%')->paginate(3);
+        return view('blog', compact('articles','categories','tags'));
     }
 
     public function contact(){
@@ -88,9 +97,11 @@ class FrontController extends Controller
         
         event(new Newsletterform($request));
         $newsletter = new Newsletter;
-        $newsletter->email = $request->email;
+        $newsletter->email = $request->email;   
         $newsletter->save();
+        
         return redirect()->route("home");
+        
     }  
     
     public function commentaireform(Request $request ,$article_id){
@@ -101,6 +112,7 @@ class FrontController extends Controller
         $commentaire->subject = $request->subject;
         $commentaire->message = $request->message;
         $commentaire->article_id = $article_id;
+        $commentaire->validation = 2;
         $commentaire->save();
         return redirect()->route("home");
 

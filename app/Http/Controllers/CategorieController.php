@@ -39,7 +39,15 @@ class CategorieController extends Controller
         $categorie = new Categorie;
         $categorie->nom = $request->nom;
         if($categorie->save()){
-            return redirect()->route('categorie.index');
+            return redirect()->route("categorie.index")->with([
+                "status"=> "success",
+                "message"=> "Votre categorie a bien été enregistrée"
+                ]);
+        }else{
+            return redirect()->route("categorie.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -86,7 +94,15 @@ class CategorieController extends Controller
     public function destroy(Categorie $categorie)
     {
         if($categorie->delete()){
-            return redirect()->route("categorie.index");
+            return redirect()->route("categorie.index")->with([
+                "status"=> "success",
+                "message"=> "Votre categorie a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("categorie.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 }

@@ -13,10 +13,12 @@
     <table class="table table-light">
         <thead>
              <tr>
+                 <th>#</th>
                  <th>Name</th>
                  <th>Email</th>
                  <th>Subject</th>
                  <th>Message</th>
+                 <th>Validation</th>
                  <th>Action</th>
             </tr>
         </thead>
@@ -28,7 +30,9 @@
                 <td>{{$commentaire->email}}</td>
                 <td>{{$commentaire->subject}}</td>
                 <td>{{$commentaire->message}}</td>
-                <td>
+                <td>{{$commentaire->validation}}</td>
+                <td class="d-flex">
+                    <a href="{{route('commentaire.show',['commentaire' => $commentaire->id])}}"class="btn btn-info"> Lire</a>
                     <form action="{{route('commentaire.destroy',['commentaire'=>$commentaire->id])}}" method="post">
                         @csrf
                         @method('DELETE')

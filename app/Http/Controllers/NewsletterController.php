@@ -84,7 +84,15 @@ class NewsletterController extends Controller
     public function destroy(Newsletter $newsletter)
     {
         if($newsletter->delete()){
-            return redirect()->route('newsletter.index');
+            return redirect()->route("newsletter.index")->with([
+                "status"=> "success",
+                "message"=> "Un membre de la newsletter a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("newsletter.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 }

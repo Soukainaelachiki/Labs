@@ -20,6 +20,7 @@
         <th scope="col">Editeur</th>
         <th scope="col">Tags</th>
         <th scope="col">Categorie</th>
+        <th scope="col">Validation</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -37,6 +38,7 @@
             @endforeach
           </td>
           <td>{{$article->categories->nom}}</td>
+          <td>{{$article->validation}}</td>
           <td><a href="{{route('article.show',['article' => $article->id])}}"class="btn btn-info">En savoir plus...</a></td>
         </tr>   
       @endforeach

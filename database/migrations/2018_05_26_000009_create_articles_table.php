@@ -27,6 +27,7 @@ class CreateArticlesTable extends Migration
             $table->string('image')->nullable();
             $table->string('titre');
             $table->text('contenu');
+            $table->unsignedInteger('validation');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('categorie_id');
             $table->timestamp('created_at')->nullable();

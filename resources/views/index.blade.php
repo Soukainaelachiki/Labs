@@ -64,7 +64,7 @@
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<img src="{{asset('template/img/video.jpg')}}" alt="">
-							<a href="https://www.youtube.com/" class="video-popup">
+							<a href="https://www.youtube.com">
 								<i class="fa fa-play" ></i>
 							</a>
 						</div>

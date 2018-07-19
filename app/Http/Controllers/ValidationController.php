@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Commentaire;
 use Illuminate\Http\Request;
+use App\Article;
 
-class CommentaireController extends Controller
+class ValidationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class CommentaireController extends Controller
      */
     public function index()
     {
-        $commentaires = Commentaire::all();
-        return view("admin.commentaire.index",compact("commentaires"));
+        
     }
 
     /**
@@ -42,21 +41,21 @@ class CommentaireController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Commentaire  $commentaire
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Commentaire $commentaire)
+    public function show($id)
     {
-        return view("admin.commentaire.show",compact("commentaire"));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Commentaire  $commentaire
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Commentaire $commentaire)
+    public function edit($id)
     {
         //
     }
@@ -65,32 +64,25 @@ class CommentaireController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Commentaire  $commentaire
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Commentaire $commentaire)
+    public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->validation = $request->validation;
+        $article->save();
+        return redirect()->route('article.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Commentaire  $commentaire
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Commentaire $commentaire)
+    public function destroy($id)
     {
-        if($commentaire->delete()){
-            return redirect()->route("commentaire.index")->with([
-                "status"=> "success",
-                "message"=> "Votre commentaire a bien été supprimé"
-                ]);
-        }else{
-            return redirect()->route("commentaire.index")->with([
-                "status"=> "danger",
-                "message"=> "Une erreur est survenue"
-                ]);     
-        }
+        //
     }
 }

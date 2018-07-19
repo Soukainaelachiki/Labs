@@ -27,9 +27,16 @@ class UsersController extends Controller
         $user->password = bcrypt($request->password);
         $user->role_id = $request->role;
 
-        if ($user->save())
-        {
-            return redirect()->route("users.index");
+        if($user->save()){
+            return redirect()->route("users.index")->with([
+                "status"=> "success",
+                "message"=> "Votre utilisateur a bien été ajouté"
+                ]);
+        }else{
+            return redirect()->route("user.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -39,7 +46,15 @@ class UsersController extends Controller
 
     public function destroy(User $user){
         if($user->delete()){
-            return redirect()->route('users.index');
+            return redirect()->route("users.index")->with([
+                "status"=> "success",
+                "message"=> "Votre utilisateur a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("user.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 }

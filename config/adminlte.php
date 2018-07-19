@@ -120,6 +120,7 @@ return [
             'icon'        => 'file',
             'label'       => 2,
             'label_color' => 'success',
+            'can'  => 'admin',
         ],
 
         [
@@ -128,6 +129,8 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
+            
         ],
 
         [
@@ -136,6 +139,8 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
+
         ],
 
         [
@@ -144,6 +149,7 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
         ],
 
         [
@@ -152,6 +158,7 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
         ],
 
         [
@@ -160,6 +167,7 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
         ],
 
         [
@@ -168,6 +176,7 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
         ],
 
         [
@@ -176,6 +185,7 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
         ],
         [
             'text'        => 'Categorie',
@@ -183,6 +193,7 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
         ],
 
         [
@@ -191,6 +202,7 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            
         ],
         [
             'text'        => 'Newsletter',
@@ -198,6 +210,7 @@ return [
             'icon'        => 'file',
             'label'       => 1,
             'label_color' => 'success',
+            'can'  => 'admin',
         ],
         [
             'text'        => 'Commentaire',

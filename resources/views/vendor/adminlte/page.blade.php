@@ -15,9 +15,12 @@
 
 @section('body')
     <div class="wrapper">
-
+        
         <!-- Main Header -->
         <header class="main-header">
+            @if(session('message'))
+            @include('components.notification')
+            @endif
             @if(config('adminlte.layout') == 'top-nav')
             <nav class="navbar navbar-static-top">
                 <div class="container">

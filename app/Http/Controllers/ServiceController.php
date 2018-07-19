@@ -43,9 +43,16 @@ class ServiceController extends Controller
         $service->titre = $request->titre;
         $service->contenu = $request->contenu;
         $service->icon_id = $request->name;
-        if ($service->save())
-        {
-            return redirect()->route("service.index");
+        if($service->save()){
+            return redirect()->route("service.index")->with([
+                "status"=> "success",
+                "message"=> "Votre service a bien été ajouté"
+                ]);
+        }else{
+            return redirect()->route("service.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -85,9 +92,16 @@ class ServiceController extends Controller
         $service->titre = $request->titre;
         $service->contenu = $request->contenu;
         $service->icon_id = $request->name;
-        if ($service->save())
-        {
-            return redirect()->route("service.index");
+        if($service->save()){
+            return redirect()->route("service.index")->with([
+                "status"=> "success",
+                "message"=> "Votre service a bien été modifié"
+                ]);
+        }else{
+            return redirect()->route("service.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -100,7 +114,15 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         if($service->delete()){
-            return redirect()->route('service.index');
+            return redirect()->route("service.index")->with([
+                "status"=> "success",
+                "message"=> "Votre service a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("service.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 }

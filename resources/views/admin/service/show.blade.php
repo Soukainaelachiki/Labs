@@ -12,10 +12,10 @@
         <i class="{{$service->icon->name}}"></i>
     </div>
     <div class="col-md-3">
-        <h5 class="card-title">{{$service->titre}} g</h5>
+        <h5 class="card-title">{{$service->titre}}</h5>
     </div>
     <div class="col-md-7"> 
-        <p class="card-text">{{$service->contenu}} v</p>
+        <p class="card-text">{{$service->contenu}}</p>
     </div>
     <div class="">
         <a href="{{route('service.edit',['service'=>$service->id])}}" class="btn btn-warning">Modifier</a> 

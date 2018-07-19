@@ -44,7 +44,15 @@ class CarouselController extends Controller
         }
 
         if($carousel->save()){
-            return redirect()->route('carousel.index');
+            return redirect()->route("carousel.index")->with([
+                "status"=> "success",
+                "message"=> "Votre carousel a bien été enregistré"
+                ]);
+        }else{
+            return redirect()->route("carousel.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
 
     }
@@ -53,7 +61,15 @@ class CarouselController extends Controller
 
         $carousel->image = $this->imageResize->imageDestroy($carousel->image);
         if($carousel->delete()){
-            return redirect()->route('carousel.index');
+            return redirect()->route("carousel.index")->with([
+                "status"=> "success",
+                "message"=> "Votre carousel a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("carousel.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
 
     }

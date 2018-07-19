@@ -55,8 +55,16 @@ class ClientController extends Controller
         ];
         $client->image = $this->imageResize->imageStore($arg);
       
-        if ($client->save()){
-            return redirect()->route('client.index');
+        if($client->save()){
+            return redirect()->route("client.index")->with([
+                "status"=> "success",
+                "message"=> "Votre client a bien été ajouté"
+                ]);
+        }else{
+            return redirect()->route("client.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -107,7 +115,15 @@ class ClientController extends Controller
         }
 
         if($client->save()){
-            return redirect()->route('client.index');
+            return redirect()->route("client.index")->with([
+                "status"=> "success",
+                "message"=> "Votre client a bien été modifié"
+                ]);
+        }else{
+            return redirect()->route("client.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -121,7 +137,15 @@ class ClientController extends Controller
     {
         $client->image =$this->imageResize->imageDestroy($client->image);
         if($client->delete()){
-            return redirect()->route('client.index');
+            return redirect()->route("client.index")->with([
+                "status"=> "success",
+                "message"=> "Votre client a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("client.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 }

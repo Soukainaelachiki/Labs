@@ -50,9 +50,16 @@ class TeamController extends Controller
             'x' => '',
         ];
         $team->photo = $this->imageResize->imageStore($arg);
-        if ($team->save())
-        {
-            return redirect()->route("team.index");
+        if($team->save()){
+            return redirect()->route("team.index")->with([
+                "status"=> "success",
+                "message"=> "Votre personnel a bien été ajouté"
+                ]);
+        }else{
+            return redirect()->route("team.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -99,7 +106,15 @@ class TeamController extends Controller
         $team->photo = $this->imageResize->imageStore($arg);
         }
         if($team->save()){
-            return redirect()->route('team.index');
+            return redirect()->route("team.index")->with([
+                "status"=> "success",
+                "message"=> "Votre team a bien été modifié"
+                ]);
+        }else{
+            return redirect()->route("team.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -113,7 +128,15 @@ class TeamController extends Controller
     {
         $team->photo =$this->imageResize->imageDestroy($team->photo);
         if($team->delete()){
-            return redirect()->route('team.index');
+            return redirect()->route("team.index")->with([
+                "status"=> "success",
+                "message"=> "Votre personnel a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("team.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 }

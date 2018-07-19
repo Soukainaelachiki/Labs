@@ -57,13 +57,21 @@ class ArticleController extends Controller
         $article->contenu = $request->contenu;
         $article->user_id = $request->name;
         $article->categorie_id =$request->categorie_id;
+        $article->validation = 2;
         if($article->save())
         {
-
             foreach($request->tags_id as $tag){
                 $article->tags()->attach($tag);
             };
-            return redirect()->route("article.index");
+            return redirect()->route("article.index")->with([
+                "status"=> "success",
+                "message"=> "Votre article a bien été enregistré"
+                ]);
+        }else{
+            return redirect()->route("article.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);
         }
     }
 
@@ -110,8 +118,17 @@ class ArticleController extends Controller
         }
         $article->contenu = $request->contenu;
         //$article->user_id = $request->name;
+        $article->validation = 2;
         if($article->save()){
-            return redirect()->route('article.index');
+            return redirect()->route("article.index")->with([
+                "status"=> "success",
+                "message"=> "Votre article a bien été modifié"
+                ]);
+        }else{
+            return redirect()->route("article.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -125,7 +142,15 @@ class ArticleController extends Controller
     {
         $article->image =$this->imageResize->imageDestroy($article->image);
         if($article->delete()){
-            return redirect()->route('article.index');
+            return redirect()->route('article.index')->with([
+                "status"=>"success",
+                "message"=>"votre article a bien été supprimé"
+            ]);
+        }else{
+            return redirect()->route("article.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);   
         }
     }
 }

@@ -40,7 +40,15 @@ class TagController extends Controller
         $tag = new Tag;
         $tag->theme = $request->theme;
         if($tag->save()){
-            return redirect()->route('tag.index');
+            return redirect()->route("tag.index")->with([
+                "status"=> "success",
+                "message"=> "Votre tag a bien été ajouté"
+                ]);
+        }else{
+            return redirect()->route("tag.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -87,7 +95,15 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         if($tag->delete()){
-            return redirect()->route("tag.index");
+            return redirect()->route("tag.index")->with([
+                "status"=> "success",
+                "message"=> "Votre tag a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("tag.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 }

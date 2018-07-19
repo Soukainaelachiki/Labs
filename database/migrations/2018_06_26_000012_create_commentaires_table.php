@@ -29,6 +29,7 @@ class CreateCommentairesTable extends Migration
             $table->string('subject');
             $table->text('message');
             $table->unsignedInteger('article_id');
+            $table->unsignedInteger('validation');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
 

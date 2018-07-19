@@ -53,9 +53,16 @@ class ProjetController extends Controller
         ];
         $projet->image = $this->imageResize->imageStore($arg);
 
-        if ($projet->save())
-        {
-            return redirect()->route("projet.index");
+        if($projet->save()){
+            return redirect()->route("projet.index")->with([
+                "status"=> "success",
+                "message"=> "Votre projet a bien été ajouté"
+                ]);
+        }else{
+            return redirect()->route("projet.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -103,7 +110,15 @@ class ProjetController extends Controller
         $projet->image = $this->imageResize->imageStore($arg);
         }
         if($projet->save()){
-            return redirect()->route('projet.index');
+            return redirect()->route("projet.index")->with([
+                "status"=> "success",
+                "message"=> "Votre projet a bien été modifié"
+                ]);
+        }else{
+            return redirect()->route("projet.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 
@@ -117,7 +132,15 @@ class ProjetController extends Controller
     {
         $projet->image =$this->imageResize->imageDestroy($projet->image);
         if($projet->delete()){
-            return redirect()->route('projet.index');
+            return redirect()->route("projet.index")->with([
+                "status"=> "success",
+                "message"=> "Votre projet a bien été supprimé"
+                ]);
+        }else{
+            return redirect()->route("projet.index")->with([
+                "status"=> "danger",
+                "message"=> "Une erreur est survenue"
+                ]);     
         }
     }
 }
